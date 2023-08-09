@@ -177,6 +177,7 @@ variable "startup_probe" {
         name  = string
         value = string
       })), null)
+      port = optional(number)
     }), null)
     tcp_socket = optional(object({
       port = optional(number)
