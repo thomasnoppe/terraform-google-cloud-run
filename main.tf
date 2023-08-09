@@ -59,7 +59,7 @@ resource "google_cloud_run_service" "main" {
               for_each = var.startup_probe.http_get != null ? [1] : []
               content {
                 path = var.startup_probe.http_get.path
-                port = var.startup_probe.port
+                port = var.startup_probe.http_get.port
                 dynamic "http_headers" {
                   for_each = var.startup_probe.http_get.http_headers != null ? var.startup_probe.http_get.http_headers : []
                   content {
@@ -96,7 +96,7 @@ resource "google_cloud_run_service" "main" {
               for_each = var.liveness_probe.http_get != null ? [1] : []
               content {
                 path = var.liveness_probe.http_get.path
-                port = var.liveness_probe.port
+                port = var.liveness_probe.http_get.port
                 dynamic "http_headers" {
                   for_each = var.liveness_probe.http_get.http_headers != null ? var.liveness_probe.http_get.http_headers : []
                   content {
