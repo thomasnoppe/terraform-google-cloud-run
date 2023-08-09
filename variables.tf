@@ -208,6 +208,7 @@ variable "liveness_probe" {
         name  = string
         value = string
       })), null)
+      port = optional(number)
     }), null)
     grpc = optional(object({
       port    = optional(number)
